@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	address = "localhost:50011"
+	address = "localhost:8080"
 	default_operand1 float64 = 1.0
 	default_operand2 float64 = 1.0
 )
