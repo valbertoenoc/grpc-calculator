@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "/calculatorpb";
+
+package calculator;
+
+import "google/api/annotations.proto";
+
+service CalculatorService {
+
+    // add method
+    rpc Add (CalculatorRequest) returns (CalculatorResult) {
+        option (google.api.http) = {
+            post: "/example/add"
+            body: "*"
+        }; 
+    }
+    // subtract method 
+    rpc Subtract (CalculatorRequest) returns (CalculatorResult) {
+        option (google.api.http) = {
+            post: "/example/subtract"
+            body: "*"
+        }; 
+    }
+    // multiplication method
+    rpc Multiply (CalculatorRequest) returns (CalculatorResult) {
+        option (google.api.http) = {
+            post: "/example/multiply"
+            body: "*"
+        }; 
+    }
+    // divide method 
+    rpc Divide (CalculatorRequest) returns (CalculatorResult) {
+        option (google.api.http) = {
+            post: "/example/divide"
+            body: "*"
+        }; 
+    }
+}
+
+message CalculatorRequest {
+    double operand1 = 1;
+    double operand2 = 2;
+}
+
+message CalculatorResult {
+    double result = 1;
+}

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	pb "github.com/valbertoenoc/grpc_calculator/calculator/calculatorpb"
+	pb "github.com/valbertoenoc/grpc_calculator/proto/calculator"
 	"google.golang.org/grpc"
 )
 
