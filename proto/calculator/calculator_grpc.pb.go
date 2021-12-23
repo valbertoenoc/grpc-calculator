@@ -73,7 +73,7 @@ func (c *calculatorServiceClient) Divide(ctx context.Context, in *CalculatorRequ
 }
 
 // CalculatorServiceServer is the server API for CalculatorService service.
-// All implementations should embed UnimplementedCalculatorServiceServer
+// All implementations must embed UnimplementedCalculatorServiceServer
 // for forward compatibility
 type CalculatorServiceServer interface {
 	// add method
@@ -84,9 +84,10 @@ type CalculatorServiceServer interface {
 	Multiply(context.Context, *CalculatorRequest) (*CalculatorResult, error)
 	// divide method
 	Divide(context.Context, *CalculatorRequest) (*CalculatorResult, error)
+	mustEmbedUnimplementedCalculatorServiceServer()
 }
 
-// UnimplementedCalculatorServiceServer should be embedded to have forward compatible implementations.
+// UnimplementedCalculatorServiceServer must be embedded to have forward compatible implementations.
 type UnimplementedCalculatorServiceServer struct {
 }
 
@@ -102,6 +103,7 @@ func (UnimplementedCalculatorServiceServer) Multiply(context.Context, *Calculato
 func (UnimplementedCalculatorServiceServer) Divide(context.Context, *CalculatorRequest) (*CalculatorResult, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Divide not implemented")
 }
+func (UnimplementedCalculatorServiceServer) mustEmbedUnimplementedCalculatorServiceServer() {}
 
 // UnsafeCalculatorServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to CalculatorServiceServer will
@@ -211,5 +213,5 @@ var CalculatorService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/calculator/calculator.proto",
+	Metadata: "calculator/calculator.proto",
 }

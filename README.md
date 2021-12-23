@@ -6,7 +6,7 @@ Basic Calculator using gRPC architecture in Golang.
 
 > Generate protobuffers using protoc
 
-`$ protoc -I .\proto --go_out .\proto --go_opt paths=source_relative --go-grpc_out .\proto --go-grpc_opt paths=source_relative --grpc-gateway_out .\proto --grpc-gateway_opt paths=source_relative .\proto\calculator\calculator.proto `
+`$ protoc -I .\proto --go_out .\proto --go_opt paths=source_relative --go-grpc_out .\proto --go-grpc_opt paths=source_relative --grpc-gateway_out .\proto --grpc-gateway_opt paths=source_relative .\ --openapiv2_out .\proto proto\calculator\calculator.proto `
 
 > Generate protobuffers using buf
 
@@ -17,15 +17,15 @@ Basic Calculator using gRPC architecture in Golang.
 
 ### Configure dependencies
 
-`$ gen-Windows-x84_64.exe mod update`
+`$ buf-Windows-x84_64.exe mod update`
 
 ### Download dependencies
 
-`$ gen-Windows-x84_64.exe build`
+`$ buf-Windows-x84_64.exe build`
 
 ### Generate Stubs
 
-`$ gen-Windows-x84_64.exe generate --path .\proto\calculator\calculator.proto`
+`$ buf-Windows-x84_64.exe generate --path .\proto\calculator\calculator.proto`
 
 # Running
 
@@ -58,3 +58,7 @@ To test gRPC-Gateware HTTP server (add/subtract/multiply/divide) endpoints run:
 For the HTTP server, it is recommended to test from POSTMAN or any other API testing service.
 
 ![postman add](./postman_add.png)
+
+# Openapiv2 Swagger
+
+Use the following link to see the Swagger API documentation. [Swagger Api Documentation](https://app.swaggerhub.com/apis/valberto-enoc/calculator-calculator_proto/1.0)
